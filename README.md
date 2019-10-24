@@ -2,6 +2,10 @@
   labels **are shifted** inside the model, i.e. you can set lm_labels = input_ids
                 
         Example for GPT2DoubleHeadsModel:
+        '''inputs (N,C,L)
+           mc_token_ids (N,C) last token to use for cls
+           mc_labels (N,)
+           lm_labels (N,C,L)'''
         import torch
         from transformers import GPT2Tokenizer, GPT2DoubleHeadsModel
         tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
