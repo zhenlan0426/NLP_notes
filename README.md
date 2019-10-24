@@ -1,9 +1,9 @@
 1. GPT-2:
   labels **are shifted** inside the model, i.e. you can set lm_labels = input_ids
-  Example:
+  Example for GPT2DoubleHeadsModel:
+              
         import torch
         from transformers import GPT2Tokenizer, GPT2DoubleHeadsModel
-        
         tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
         model = GPT2DoubleHeadsModel.from_pretrained('gpt2')
         
@@ -16,6 +16,6 @@
         encoded_choices = [tokenizer.encode(s) for s in choices]
         cls_token_location = [tokens.index(tokenizer.cls_token_id) for tokens in encoded_choices]
         input_ids = torch.tensor(encoded_choices).unsqueeze(0)  # Batch size: 1, number of choices: 2
-        mc_token_ids = torch.tensor([cls_token_location])  # Batch size: 1
+        mc_token_ids = torch.tensor([cls_token_location])  # where cls is to be used for classification
         outputs = model(input_ids, mc_token_ids=mc_token_ids)
         lm_prediction_scores, mc_prediction_scores = outputs[:2]
