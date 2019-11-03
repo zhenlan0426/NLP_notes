@@ -25,6 +25,6 @@
         lm_prediction_scores, mc_prediction_scores = outputs[:2]
 
 2. Transformer XL:
-  1. mem_len should be set to smaller number during training
-  2. same_length. Was set to True as default as original paper. Might be worthwhile to check otherwise on data. 
+  mem_len should be set to smaller number during training
+  same_length. Was set to True as default as original paper. Might be worthwhile to check otherwise on data. 
   
