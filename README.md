@@ -1,7 +1,7 @@
 Save and Load transformer model:
                 
-        torch.save(model_to_save.state_dict(), "pytorch_model.bin")
-        model_to_save.config.to_json_file("config.json")
+        torch.save(model_to_save.state_dict(), os.path.join(OUTPUT_DIR,"pytorch_model.bin"))
+        model_to_save.config.to_json_file(os.path.join(OUTPUT_DIR,"config.json"))
         tokenizer.save_vocabulary(OUTPUT_DIR)
         
         tokenizer = transformers.DistilBertTokenizer.from_pretrained(OUTPUT_DIR)
