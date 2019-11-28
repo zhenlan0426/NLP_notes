@@ -1,3 +1,12 @@
+Save and Load transformer model:
+                
+        torch.save(model_to_save.state_dict(), "pytorch_model.bin")
+        model_to_save.config.to_json_file("config.json")
+        tokenizer.save_vocabulary(OUTPUT_DIR)
+        
+        tokenizer = transformers.DistilBertTokenizer.from_pretrained(OUTPUT_DIR)
+        model = transformers.DistilBertModel.from_pretrained(OUTPUT_DIR)
+
 1. GPT-2:
   labels **are shifted** inside the model, i.e. you can set lm_labels = input_ids
                 
